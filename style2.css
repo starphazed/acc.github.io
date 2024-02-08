@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Silkscreen&family=Sixtyfour&display=swap');
+*
+{ margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Chakra Petch', sans-serif;
+}
+body{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black
+;
+}
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.box h2 {
+    font-size: 5.25em;
+    -webkit-text-stroke: 0.1px #f00;
+    color: transparent;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: animate 2.5s linear infinite;
+    animation-delay: calc(var(--i) * 0.25s)
+
+}
+@keyframes animate
+{
+    0%,10%
+    {color: rgb(255, 179, 179);
+    filter: hue-rotate(0deg);}
+    10.00001%
+    {color: rgb(150, 222, 255);
+    filter: hue-rotate(transparent);}
+    100%
+    {color: rgb(255, 189, 189);
+    filter: hue-rotate(360deg);}
+}
+
+a { text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 4em;
+color: aliceblue;
+}
+
+a:hover {
+    color: chartreuse;
+    font-size: 5em;
+    transition: font-size 1s ease;
+
+}

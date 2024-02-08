@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Sixtyfour&display=swap');
+
+body {background-color: black;}
+
+.line1 {color: rgb(0, 0, 0);
+    font-family: 'Sixtyfour', sans-serif;
+font-size: 2rem;
+text-align: center;
+padding: 5em;}
+.line1, .wrong {
+    transition: color 1s ease; 
+  }
+  
+  .line1:hover {
+    color: rgba(255, 255, 255, 0.26); 
+  }
+  
+  .wrong:hover {
+    color: rgb(220, 20, 60, 0.2);
+    font-size: 120%;
+    transition: font-size 1s ease;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(128, 255, 0, 0.281);
+  }
+
+  a:hover {font-size: 130%;
+    color: chartreuse;
+transition: color 2s ease;
+transition: font-size 2s ease;}
+
+  
