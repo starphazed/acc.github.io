@@ -1,0 +1,148 @@
+@import url("https://use.typekit.net/sss0xoq.css");
+
+:root {
+    --color1: #e05d4f;
+    --color2: #3b3833;
+    --color3: #FFF8F0;
+    --color4: #647eb3;
+}
+
+body {
+    background-color: #3b3833;
+
+
+}
+
+.main {
+     display: block; 
+  margin: auto; 
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-column-gap: 30px;
+}
+
+.pinhole,
+.camera {
+    display: block; 
+    margin: auto; 
+    font-family: ltc-broadway, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10vw;
+    color: var(--color3);
+    text-shadow: 5px -5px 1px var(--color1);
+    -webkit-text-stroke: 4px var(--color2);
+    letter-spacing: 30px;
+    text-align: justify;
+}
+
+.pinhole {
+    grid-area: 1 / 1 / 3 / 5;
+    color: #647eb3;
+    padding-top: 50px;
+    background-color: #3b3833;
+}
+
+
+.camera {
+    color: #3b3833;
+    grid-area: 3 / 3 / 5 / 6;
+    font-size: 7vw;
+    padding-top: 80px;
+    background-color: #647eb3;
+}
+.history {
+    display: block;
+    margin: auto; 
+    grid-area: 1 / 5 / 3 / 7;
+    align-content: center;
+    font-family: "niagara", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    text-align: justify;
+    padding: 5px;
+    background-color: #e05e4f81;
+}
+
+.art {
+    display: block;
+    margin: auto; 
+    grid-area: 3 / 1 / 7 / 3;
+    align-content: center;
+    font-family: "niagara", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    padding: 5px;
+    background-color: #FFF8F0;
+}
+
+.img { grid-area: 5 / 4 / 8 / 6; 
+    padding: 5px;
+    background-color:#FFF8F0;
+}
+
+.img img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+    display: block; 
+}
+
+.img2 { grid-area: 5 / 3 / 10 / 4; 
+    padding: 5px;
+    background-color: #647eb3;
+}
+.img2 img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    display: block; 
+}
+
+.photo { grid-area: 7 / 1 / 10 / 3; 
+    padding: 5px;
+background-color: #FFF8F0;}
+
+.photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    display: block; 
+}
+
+.ray { grid-area: 3 / 6 / 8 / 7; 
+    display: block;
+    margin: auto; 
+    align-content: center;
+    font-family: "niagara", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    text-align: justify;
+    padding: 5px;
+    background-color: #e05e4f81;
+}
+.fresnel { grid-area: 8 / 4 / 10 / 7; 
+    display: block;
+    margin: auto; 
+    align-content: center;
+    font-family: "niagara", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    text-align: justify;
+    padding: 5px;
+    background-color: #e05e4f81;}
+    
+
+a {
+    font-family: "sinete", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: #647eb3;
+    font-size: 50px;
+}
