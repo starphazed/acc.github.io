@@ -1,0 +1,59 @@
+@import url("https://use.typekit.net/sbe2xhd.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "gloridot", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color:rgb(27, 27, 27);
+}
+
+.text {
+    position: relative;
+    transform: skewY(345deg) translateY(-200px);
+    animation: animateColor 5s linear infinite;
+}
+
+@keyframes animateColor
+{
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    100%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.text h2 {
+    position: relative;
+width: 100%;
+font-size: 9em;
+color: rgb(255, 255, 255);
+pointer-events: none;
+line-height: 1em;
+white-space: nowrap;
+transform: translateX(calc(0% - var(--x) * var(--i) )) ;
+}
+
+.text h2 span{
+color: aqua;
+margin: 0 10px;
+}
+
+.text h2 span:nth-child(even){
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff ;
+}
+
+a{ pointer-events: all;}
