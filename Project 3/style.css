@@ -1,0 +1,145 @@
+@import url("https://use.typekit.net/orj0xso.css");
+
+
+
+body,
+html {
+    cursor: url('cursor.png'), auto;
+}
+
+body {
+    background-color: #f6cde2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    display: none;
+    flex-direction: column;
+    width: 50rem;
+    max-width: 80%;
+    background-color: #c3e6c7;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.6rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+#question-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#question {
+    color: #709874;
+    font-family: "pf-uniform", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+#answer-buttons {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input {
+    width: fit-content;
+    
+}
+
+.btn {
+    font-family: "pf-uniform", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 1.5rem;
+    background-color: #b67295;
+    color: white;
+    border: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+input,
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3282d8;
+}
+
+.hide {
+    display: none;
+}
+
+#result {
+    margin: 2rem auto;
+}
+
+#question,
+#result {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Base styling for answer buttons */
+.answer-btn {
+    font-family: "pf-videotext", sans-serif;
+font-weight: 400;
+font-style: normal;
+    background-color: #b67295; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding inside the buttons */
+    margin: 5px 0; /* Margin between buttons */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for hover effects */
+    width: 100%; /* Make the buttons full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  /* Hover and focus styles for the buttons to provide visual feedback */
+  .answer-btn:hover, .answer-btn:focus {
+    background-color: #7c4762; /* Darker shade of green when hovering/focusing */
+    transform: scale(1.05); /* Slightly increase the button size */
+    outline: none; /* Remove outline from focused button */
+  }
+  
+  /* Disabled button style */
+  .answer-btn:disabled {
+    background-color: #cccccc; /* Gray background for disabled buttons */
+    color: #666666; /* Dark gray text for disabled buttons */
+    cursor: not-allowed; /* Cursor indicates the button is not clickable */
+  }
+  
+  #start-btn {
+    background-color: #b67295; /* Bootstrap primary color */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #start-btn:hover {
+    background-color: #7c4762; /* A slightly darker blue */
+  }
+  
