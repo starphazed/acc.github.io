@@ -1,14 +1,31 @@
 @import url("https://use.typekit.net/orj0xso.css");
 
+html {
+    --s: 70px;
+    /* control the size */
+    --b: 15px;
+    /* control the thickness of the curved lines */
 
+    --_r: calc(1.28*var(--s) + var(--b)/2) at top 50%;
+    --_f: calc(99.5% - var(--b)), #f6cde2 calc(101% - var(--b)) 99.5%, #0000 101%;
+    --_g0: calc(-.8*var(--s)), #b67295 var(--_f);
+    --_g1: calc(-.8*var(--s)), #d2a9be var(--_f);
+    --_s: calc(1.8*var(--s) + var(--b));
+    background:
+        radial-gradient(var(--_r) right var(--_g0)) calc(-1*var(--_s)) var(--s),
+        radial-gradient(var(--_r) left var(--_g1)) var(--_s) calc(-1*var(--s)),
+        radial-gradient(var(--_r) right var(--_g1)) calc(var(--_s)/-2) calc(-1*var(--s)),
+        radial-gradient(var(--_r) left var(--_g0)) calc(var(--_s)/ 2) var(--s),
+        linear-gradient(90deg, #b67295 50%, #d2a9be 0);
+    background-size: var(--_s) calc(4*var(--s));
+}
 
 body,
 html {
-    cursor: url('cursor.png'), auto;
+    cursor: url('images/cursor.png'), auto;
 }
 
 body {
-    background-color: #f6cde2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +61,7 @@ body {
 }
 
 #answer-buttons {
-    
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -60,7 +77,7 @@ body {
 
 input {
     width: fit-content;
-    
+
 }
 
 .btn {
@@ -83,9 +100,6 @@ input,
     background-color: #3282d8;
 }
 
-.hide {
-    display: none;
-}
 
 #result {
     margin: 2rem auto;
@@ -100,46 +114,51 @@ input,
 /* Base styling for answer buttons */
 .answer-btn {
     font-family: "pf-videotext", sans-serif;
-font-weight: 400;
-font-style: normal;
-    background-color: #b67295; /* Green background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding inside the buttons */
-    margin: 5px 0; /* Margin between buttons */
-    border: none; /* No border */
-    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for hover effects */
-    width: 100%; /* Make the buttons full width of their container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-  
-  /* Hover and focus styles for the buttons to provide visual feedback */
-  .answer-btn:hover, .answer-btn:focus {
-    background-color: #7c4762; /* Darker shade of green when hovering/focusing */
-    transform: scale(1.05); /* Slightly increase the button size */
-    outline: none; /* Remove outline from focused button */
-  }
-  
-  /* Disabled button style */
-  .answer-btn:disabled {
-    background-color: #cccccc; /* Gray background for disabled buttons */
-    color: #666666; /* Dark gray text for disabled buttons */
-    cursor: not-allowed; /* Cursor indicates the button is not clickable */
-  }
-  
-  #start-btn {
-    background-color: #b67295; /* Bootstrap primary color */
+    font-weight: 400;
+    font-style: normal;
+    background-color: #b67295;
+    /* Green background */
     color: white;
+    /* White text */
     padding: 10px 20px;
-    margin: 10px 0;
+    /* Padding inside the buttons */
+    margin: 5px 0;
+    /* Margin between buttons */
     border: none;
+    /* No border */
     cursor: pointer;
+    /* Cursor changes to pointer to indicate it's clickable */
     border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  #start-btn:hover {
-    background-color: #7c4762; /* A slightly darker blue */
-  }
-  
+    /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Smooth transitions for hover effects */
+    width: 100%;
+    /* Make the buttons full width of their container */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+}
+
+/* Hover and focus styles for the buttons to provide visual feedback */
+.answer-btn:hover,
+.answer-btn:focus {
+    background-color: #7c4762;
+    /* Darker shade of green when hovering/focusing */
+    transform: scale(1.05);
+    /* Slightly increase the button size */
+    outline: none;
+    /* Remove outline from focused button */
+}
+
+/* Disabled button style */
+.answer-btn:disabled {
+    background-color: #cccccc;
+    /* Gray background for disabled buttons */
+    color: #666666;
+    /* Dark gray text for disabled buttons */
+    cursor: not-allowed;
+    /* Cursor indicates the button is not clickable */
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,99 @@
+@import url("https://use.typekit.net/orj0xso.css");
+
+html {
+  --s: 70px;
+  --b: 15px;
+
+
+  --_r: calc(1.28*var(--s) + var(--b)/2) at top 50%;
+  --_f: calc(99.5% - var(--b)), #f6cde2 calc(101% - var(--b)) 99.5%, #0000 101%;
+  --_g0: calc(-.8*var(--s)), #b67295 var(--_f);
+  --_g1: calc(-.8*var(--s)), #d2a9be var(--_f);
+  --_s: calc(1.8*var(--s) + var(--b));
+  background:
+    radial-gradient(var(--_r) right var(--_g0)) calc(-1*var(--_s)) var(--s),
+    radial-gradient(var(--_r) left var(--_g1)) var(--_s) calc(-1*var(--s)),
+    radial-gradient(var(--_r) right var(--_g1)) calc(var(--_s)/-2) calc(-1*var(--s)),
+    radial-gradient(var(--_r) left var(--_g0)) calc(var(--_s)/ 2) var(--s),
+    linear-gradient(90deg, #b67295 50%, #d2a9be 0);
+  background-size: var(--_s) calc(4*var(--s));
+}
+
+body,
+html {
+  cursor: url('images/cursor.png'), auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.quiz-result.low-score,
+.quiz-result.okay-score,
+.quiz-result.good-score,
+.quiz-result.excellent-score {
+  background-color: #a0d4a6;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-result h2 {
+  color: #b67295;
+  text-align: center;
+  font-family: "pf-uniform", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quiz-result h3 {
+  color: #c46eae;
+  text-align: center;
+  font-family: "pf-uniform", sans-serif;
+  font-weight: 400;
+}
+
+.quiz-result ul {
+  list-style-type: none;
+  padding: 0;
+  font-family: "pf-videotext", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quiz-result li {
+  margin-bottom: 10px;
+}
+
+.quiz-result p {
+  color: #18301c;
+  line-height: 1.6;
+  font-family: "pf-videotext", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+a {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-content: center;
+  display: inline-block;
+  font-family: "pf-videotext", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: #f6cde2;
+}
+
+a:hover {
+  background-color: #18301c;
+}
