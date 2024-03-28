@@ -107,8 +107,11 @@ html {
 }
 
 .home-button:hover {
-    background-color: #b67295;
+    background-color: #a0d4a6;
 }
+
+a {text-decoration: none;
+    color: #b3ebb9;}
 
 
 @media (min-width: 768px) {
