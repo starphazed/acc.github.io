@@ -1,0 +1,101 @@
+@import url("https://use.typekit.net/vlk5zyg.css");
+
+html {
+    --s: 50px;
+    --c: #0D0D0D;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%, #262626 68% 70%, #0000 72%;
+    background:
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) var(--s) var(--s)/var(--_s),
+        radial-gradient(var(--_g) 100% 25%, var(--_c)) 0 0/var(--_s),
+        radial-gradient(var(--_g) 0 75%, var(--_c)) 0 0/var(--_s),
+        repeating-conic-gradient(var(--c) 0 25%, #0000 0 50%) 0 0/var(--_s),
+        radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+}
+
+body {
+    font-family: "brevier", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 20px;
+    color: #F2F2F2;
+}
+
+label {
+    font-size: 16px;
+    color: #F2F2F2;
+    text-transform: uppercase;
+}
+
+input[type="color"] {
+    height: 40px;
+    border: none;
+    width: 40px;
+    vertical-align: middle;
+}
+
+button {
+    background-color: #737373;
+    color: #0D0D0D;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: "brevier", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #242424;
+}
+
+#artworksContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #0d0d0db7;
+}
+
+.artwork-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.artwork-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.artwork-item h2 {
+    font-size: 40px;
+}
+
+.artwork-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+.artwork-item p {
+    font-size: 20px;
+}

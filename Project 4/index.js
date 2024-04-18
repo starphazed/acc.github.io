@@ -3,43 +3,109 @@ document.getElementById('fetchArtworks').addEventListener('click', function () {
   fetchArtworks(selectedColorHSL);
 });
 
+let currentTextColor = '#ffffff';
+
+document.getElementById('colorPicker').addEventListener('input', function () {
+  currentTextColor = this.value;
+  updateTextColor(currentTextColor);
+});
+
 function fetchArtworks(selectedColorHSL) {
-  fetch('https://api.artic.edu/api/v1/artworks?page=1&limit=100')
-    .then(response => response.json())
-    .then(data => {
-      if (data.data) {
-        let closestMatch = data.data[0];
-        let closestDistance = Number.MAX_VALUE;
+  let page = 1;
+  let found = false;
+  const limit = 100;
+  const threshold = 20;
 
-        data.data.forEach(artwork => {
-          if (artwork.color) {
-            const artworkHSL = [artwork.color.h, artwork.color.s, artwork.color.l];
-            const distance = hslDistance(selectedColorHSL, artworkHSL);
+  function fetchPage() {
+    fetch(`https://api.artic.edu/api/v1/artworks?page=${page}&limit=${limit}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.data && data.data.length > 0) {
+          let closestMatch = data.data[0];
+          let closestDistance = Number.MAX_VALUE;
 
-            if (distance < closestDistance) {
-              closestMatch = artwork;
-              closestDistance = distance;
+          data.data.forEach(artwork => {
+            if (artwork.color) {
+              const artworkHSL = [artwork.color.h, artwork.color.s, artwork.color.l];
+              const distance = hslDistance(selectedColorHSL, artworkHSL);
+
+              if (distance < closestDistance) {
+                closestMatch = artwork;
+                closestDistance = distance;
+              }
             }
-          }
-        });
+          });
 
-        document.getElementById('artworksContainer').innerHTML = '';
-        displayArtwork(closestMatch);
-      }
-    }).catch(error => console.error('Error fetching artworks:', error));
+          if (closestDistance < threshold || !data.pagination.next_url) {
+            found = true;
+            document.getElementById('artworksContainer').innerHTML = '';
+            displayArtwork(closestMatch);
+            updateTextColor(currentTextColor);
+          } else {
+            page++;
+            fetchPage();
+          }
+        } else {
+          console.log("No more artworks or no artworks found.");
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching artworks:', error);
+      });
+  }
+
+  fetchPage();
 }
+
 
 function displayArtwork(artwork) {
   const container = document.getElementById('artworksContainer');
   const artworkElement = document.createElement('div');
-  const imageUrl = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
+  artworkElement.className = 'artwork-item';
 
-  artworkElement.innerHTML = `
-      <h2>${artwork.title}</h2>
-      <img src="${imageUrl}" alt="${artwork.title}" style="max-width: 100px; height: auto;">
-      <p>Artist: ${artwork.artist_title}</p>
-  `;
+  const title = document.createElement('h2');
+  title.textContent = artwork.title;
+  artworkElement.appendChild(title);
+
+  const artist = document.createElement('p');
+  artist.textContent = `Artist: ${artwork.artist_title}`;
+  artworkElement.appendChild(artist);
+
+  const date = document.createElement('p');
+  date.textContent = `Date: ${artwork.date_display}`;
+  artworkElement.appendChild(date);
+
+  const medium = document.createElement('p');
+  medium.textContent = `Medium: ${artwork.medium_display}`;
+  artworkElement.appendChild(medium);
+
+  const dimensions = document.createElement('p');
+  dimensions.textContent = `Dimensions: ${artwork.dimensions}`;
+  artworkElement.appendChild(dimensions);
+
+  const image = new Image();
+  image.onload = function () {
+    console.log("Image loaded!");
+  };
+  image.onerror = function () {
+    console.error("Failed to load image");
+  };
+  image.src = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
+  image.alt = artwork.title;
+  image.style.width = "50%";
+  image.style.height = "auto";
+  artworkElement.appendChild(image);
+
   container.appendChild(artworkElement);
+}
+
+function updateTextColor(color) {
+  console.log("Updating text color to: ", color);
+  const textElements = document.querySelectorAll('#artworksContainer h2, #artworksContainer p');
+  textElements.forEach(element => {
+    console.log("Changing color for element: ", element);
+    element.style.color = color;
+  });
 }
 
 function rgbToHsl(rgb) {
@@ -64,7 +130,6 @@ function rgbToHsl(rgb) {
 
   return [h * 360, s * 100, l * 100];
 }
-
 
 function hslDistance(hsl1, hsl2) {
   let dh = Math.abs(hsl1[0] - hsl2[0]);
